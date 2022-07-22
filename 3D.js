@@ -130,6 +130,8 @@ setInterval(() => {
   let p7_p = camera.project(p7);
   let p8_p = camera.project(p8);
 
+  ///creating a sphere
+
   ctx.strokeStyle = "#000000";
 
   //drawing the bottom face
