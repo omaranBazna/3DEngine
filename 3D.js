@@ -71,32 +71,36 @@ class Camera {
   }
 }
 ///we need to add canvas object
-let camera = new Camera(0, 0);
+let camera = new Camera(-Math.PI / 4, Math.PI / 4);
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
 let xo = 300;
 let yo = 300;
-ctx.fillStyle = "rgb(255,255,255)";
-ctx.fillRect(0, 0, 600, 600);
+let angle = -Math.PI / 4;
+setInterval(() => {
+  ctx.fillStyle = "rgb(255,255,255)";
+  ctx.fillRect(0, 0, 600, 600);
+  angle += 0.1;
+  camera.rotate(angle, Math.PI / 4);
+  let xAxis = new Point3D(100, 0, 0);
+  let x_axis = camera.project(xAxis);
+  ctx.strokeStyle = "#FF0000";
+  ctx.moveTo(xo, yo);
+  ctx.lineTo(xo + x_axis.x * 1, yo + x_axis.y * 1);
+  ctx.stroke();
 
-let xAxis = new Point3D(100, 0, 0);
-let x_axis = camera.project(xAxis);
-ctx.strokeStyle = "#FF0000";
-ctx.moveTo(xo, yo);
-ctx.lineTo(xo + x_axis.x * 1, yo + x_axis.y * 1);
-ctx.stroke();
+  let yAxis = new Point3D(0, 100, 0);
+  let y_axis = camera.project(yAxis);
+  ctx.strokeStyle = "#00FF00";
+  ctx.moveTo(xo, yo);
+  ctx.lineTo(xo + y_axis.x * 1, yo + y_axis.y * 1);
+  ctx.stroke();
 
-let yAxis = new Point3D(0, 100, 0);
-let y_axis = camera.project(yAxis);
-ctx.strokeStyle = "#00FF00";
-ctx.moveTo(xo, yo);
-ctx.lineTo(xo + y_axis.x * 1, yo + y_axis.y * 1);
-ctx.stroke();
-
-let zAxis = new Point3D(0, 0, -100);
-let z_axis = camera.project(zAxis);
-ctx.strokeStyle = "#0000FF";
-ctx.moveTo(xo, yo);
-ctx.lineTo(xo + z_axis.x * 1, yo + z_axis.y * 1);
-ctx.stroke();
+  let zAxis = new Point3D(0, 0, -100);
+  let z_axis = camera.project(zAxis);
+  ctx.strokeStyle = "#0000FF";
+  ctx.moveTo(xo, yo);
+  ctx.lineTo(xo + z_axis.x * 1, yo + z_axis.y * 1);
+  ctx.stroke();
+}, 100);
