@@ -132,12 +132,14 @@ setInterval(() => {
 
   ///creating a sphere
   let sphere = [];
-  for (let i = 0; i < 10; i++) {
-    for (let u = 0; u < 10; u++) {
+  for (let i = 0; i < 15; i++) {
+    sphere[i] = [];
+    for (let u = 0; u < 15; u++) {
       sphere[i][u] = [
-        100 *
-          Math.cos((Math.PI * 2 * i) / 10) *
-          Math.cos((Math.PI * (u - 5)) / 10),
+        200 +
+          100 *
+            Math.cos((Math.PI * 2 * i) / 10) *
+            Math.cos((Math.PI * (u - 5)) / 10),
         100 *
           Math.sin((Math.PI * 2 * i) / 10) *
           Math.cos((Math.PI * (u - 5)) / 10),
@@ -223,39 +225,39 @@ setInterval(() => {
   ctx.stroke();
 
   ///draw the sphere object
-
+  let sphere_p = [];
   //project the sphere
-  for (let i = 0; i < 10; i++) {
-    for (let u = 0; u < 10; u++) {
-      sphere_p[i][u] = camera.project(sphere[i][u]);
+  for (let i = 0; i < 15; i++) {
+    sphere_p[i] = [];
+    for (let u = 0; u < 15; u++) {
+      sphere_p[i][u] = camera.project(
+        new Point3D(sphere[i][u][0], sphere[i][u][1], sphere[i][u][2])
+      );
     }
   }
 
   //draw the sphere
 
-  for (let i = 0; i < 9; i++) {
-    for (let u = 0; u < 9; u++) {
+  for (let i = 0; i < 14; i++) {
+    for (let u = 0; u < 14; u++) {
       ctx.beginPath();
-      ctx.moveTo(xo + sphere_p[i][u][0], yo + sphere_p[i][u][1]);
-      ctx.lineTo(xo + sphere_p[i + 1][u][0], yo + sphere_p[i + 1][u][1]);
+      ctx.moveTo(xo + sphere_p[i][u].x, yo + sphere_p[i][u].y);
+      ctx.lineTo(xo + sphere_p[i + 1][u].x, yo + sphere_p[i + 1][u].y);
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.moveTo(xo + sphere_p[i][u][0], yo + sphere_p[i][u][1]);
-      ctx.lineTo(xo + sphere_p[i][u + 1][0], yo + sphere_p[i][u + 1][1]);
+      ctx.moveTo(xo + sphere_p[i][u].x, yo + sphere_p[i][u].y);
+      ctx.lineTo(xo + sphere_p[i][u + 1].x, yo + sphere_p[i][u + 1].y);
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.moveTo(xo + sphere_p[i + 1][u][0], yo + sphere_p[i + 1][u][1]);
-      ctx.lineTo(
-        xo + sphere_p[i + 1][u + 1][0],
-        yo + sphere_p[i + 1][u + 1][1]
-      );
+      ctx.moveTo(xo + sphere_p[i + 1][u].x, yo + sphere_p[i + 1][u].y);
+      ctx.lineTo(xo + sphere_p[i + 1][u + 1].x, yo + sphere_p[i + 1][u + 1].y);
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.moveTo(xo + sphere_p[i][u][0], yo + sphere_p[i][u][1]);
-      ctx.lineTo(xo + sphere_p[i][u + 1][0], yo + sphere_p[i][u + 1][1]);
+      ctx.moveTo(xo + sphere_p[i][u].x, yo + sphere_p[i][u].y);
+      ctx.lineTo(xo + sphere_p[i][u + 1].x, yo + sphere_p[i][u + 1].y);
       ctx.stroke();
     }
   }
