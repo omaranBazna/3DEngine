@@ -150,4 +150,24 @@ setInterval(() => {
   ctx.moveTo(xo + p3_p.x, yo + p3_p.y);
   ctx.lineTo(xo + p4_p.x, yo + +p4_p.y);
   ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xo + p5_p.x, yo + p5_p.y);
+  ctx.lineTo(xo + p6_p.x, yo + p6_p.y);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xo + p5_p.x, yo + p5_p.y);
+  ctx.lineTo(xo + p7_p.x, yo + p7_p.y);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xo + p6_p.x, yo + p6_p.y);
+  ctx.lineTo(xo + p8_p.x, yo + p8_p.y);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xo + p7_p.x, yo + p7_p.y);
+  ctx.lineTo(xo + p8_p.x, yo + +p8_p.y);
+  ctx.stroke();
 }, 100);
