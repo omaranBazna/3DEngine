@@ -71,7 +71,3 @@ class Camera {
   }
 }
 ///we need to add canvas object
-
-<html>
-  <body></body>
-</html>;
