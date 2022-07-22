@@ -60,6 +60,6 @@ class Camera {
     let camera_x_axis = [Math.sin(this.alpha), Math.cos(this.alpha), 0];
 
     ///camera y axis is the cross product of x_axis and camera direction toward the center
-    let camera_y_axis = crossProduct(n, camera_y_axis);
+    let camera_y_axis = crossProduct(n, camera_x_axis);
   }
 }
