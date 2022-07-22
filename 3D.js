@@ -129,4 +129,25 @@ setInterval(() => {
   let p6_p = camera.project(p6);
   let p7_p = camera.project(p7);
   let p8_p = camera.project(p8);
+
+  ctx.strokeStyle = "#000000";
+  ctx.beginPath();
+  ctx.moveTo(xo + p1_p.x, yo + p1_p.y);
+  ctx.lineTo(xo + p2_p.x, yo + p2_p.y);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xo + p1_p.x, yo + p1_p.y);
+  ctx.lineTo(xo + p3_p.x, yo + p3_p.y);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xo + p2_p.x, yo + p2_p.y);
+  ctx.lineTo(xo + p4_p.x, yo + p4_p.y);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xo + p3_p.x, yo + p3_p.y);
+  ctx.lineTo(xo + p4_p.x, yo + +p4_p.y);
+  ctx.stroke();
 }, 100);
