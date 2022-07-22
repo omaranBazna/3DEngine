@@ -30,4 +30,6 @@ class Camera {
     this.alpha = alpha;
     this.beta = beta;
   }
+
+  project(Point3D) {}
 }
