@@ -35,5 +35,15 @@ class Camera {
     const x = Point3D.x;
     const y = Point3D.y;
     const z = Point3D.z;
+
+    ///define the x,y,z vector of the camera direction toward the center of the virtual world
+    let nx, ny, nz, n;
+    nx = Math.cos(this.alpha) * Math.cos(this.beta);
+    ny = Math.sin(this.alpha) * Math.cos(this.beta);
+    nz = Math.sin(this.beta);
+    n = Math.sqrt(nx * nx + ny * ny + nz * nz);
+    nx = nx / n;
+    ny = ny / n;
+    nz = nz / n;
   }
 }
