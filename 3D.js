@@ -91,7 +91,8 @@ let p6 = new Point3D(0, 100, 100);
 let p7 = new Point3D(100, 0, 100);
 let p8 = new Point3D(100, 100, 100);
 let beta = Math.PI / 4;
-setInterval(() => {
+
+let render = () => {
   ctx.fillStyle = "rgb(255,255,255)";
   ctx = c.getContext("2d");
   ctx.clearRect(0, 0, 600, 600);
@@ -260,17 +261,21 @@ setInterval(() => {
       ctx.stroke();
     }
   }
-}, 100);
-
+};
+render();
 function up() {
   beta += 0.1;
+  render();
 }
 function down() {
   beta -= 0.1;
+  render();
 }
 function left() {
   angle -= 0.1;
+  render();
 }
 function right() {
   angle += 0.1;
+  render();
 }
