@@ -1,3 +1,13 @@
+///the function to calculate the cross product
+
+function crossProduct(vect_A, vect_B) {
+  let result = [];
+  result[0] = vect_A[1] * vect_B[2] - vect_A[2] * vect_B[1];
+  result[1] = vect_A[2] * vect_B[0] - vect_A[0] * vect_B[2];
+  result[2] = vect_A[0] * vect_B[1] - vect_A[1] * vect_B[0];
+  return result;
+}
+
 ///define class for point3D in the 3D space
 class Point3D {
   constructor(x, y, z) {
@@ -45,7 +55,7 @@ class Camera {
     nx = nx / n;
     ny = ny / n;
     nz = nz / n;
-
+    n = [nx, ny, nz];
     let camera_x_axis = [Math.sin(this.alpha), Math.cos(this.alpha), 0];
   }
 }
