@@ -120,4 +120,13 @@ setInterval(() => {
   ctx.moveTo(xo, yo);
   ctx.lineTo(xo + z_axis.x * 1, yo + z_axis.y * 1);
   ctx.stroke();
+
+  let p1_p = camera.project(p1);
+  let p2_p = camera.project(p2);
+  let p3_p = camera.project(p3);
+  let p4_p = camera.project(p4);
+  let p5_p = camera.project(p5);
+  let p6_p = camera.project(p6);
+  let p7_p = camera.project(p7);
+  let p8_p = camera.project(p8);
 }, 100);
