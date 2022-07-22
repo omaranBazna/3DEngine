@@ -25,4 +25,9 @@ class Camera {
     this.alpha = alpha;
     this.beta = beta;
   }
+
+  rotate(alpha, beta) {
+    this.alpha = alpha;
+    this.beta = beta;
+  }
 }
