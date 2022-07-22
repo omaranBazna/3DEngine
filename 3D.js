@@ -66,5 +66,7 @@ class Camera {
       camera_x_axis[0] * x + camera_x_axis[1] * y + camera_x_axis[2] * z,
       camera_y_axis[0] * x + camera_y_axis[1] * y + camera_y_axis[2] * z
     );
+
+    return point;
   }
 }
