@@ -70,3 +70,4 @@ class Camera {
     return point;
   }
 }
+///we need to add canvas object
