@@ -230,4 +230,33 @@ setInterval(() => {
       sphere_p[i][u] = camera.project(sphere[i][u]);
     }
   }
+
+  //draw the sphere
+
+  for (let i = 0; i < 9; i++) {
+    for (let u = 0; u < 9; u++) {
+      ctx.beginPath();
+      ctx.moveTo(xo + sphere_p[i][u][0], yo + sphere_p[i][u][1]);
+      ctx.lineTo(xo + sphere_p[i + 1][u][0], yo + sphere_p[i + 1][u][1]);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(xo + sphere_p[i][u][0], yo + sphere_p[i][u][1]);
+      ctx.lineTo(xo + sphere_p[i][u + 1][0], yo + sphere_p[i][u + 1][1]);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(xo + sphere_p[i + 1][u][0], yo + sphere_p[i + 1][u][1]);
+      ctx.lineTo(
+        xo + sphere_p[i + 1][u + 1][0],
+        yo + sphere_p[i + 1][u + 1][1]
+      );
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(xo + sphere_p[i][u][0], yo + sphere_p[i][u][1]);
+      ctx.lineTo(xo + sphere_p[i][u + 1][0], yo + sphere_p[i][u + 1][1]);
+      ctx.stroke();
+    }
+  }
 }, 100);
