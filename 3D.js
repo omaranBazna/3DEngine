@@ -221,4 +221,13 @@ setInterval(() => {
   ctx.moveTo(xo + p4_p.x, yo + p4_p.y);
   ctx.lineTo(xo + p8_p.x, yo + p8_p.y);
   ctx.stroke();
+
+  ///draw the sphere object
+
+  //project the sphere
+  for (let i = 0; i < 10; i++) {
+    for (let u = 0; u < 10; u++) {
+      sphere_p[i][u] = camera.project(sphere[i][u]);
+    }
+  }
 }, 100);
