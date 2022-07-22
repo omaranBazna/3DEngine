@@ -61,5 +61,10 @@ class Camera {
 
     ///camera y axis is the cross product of x_axis and camera direction toward the center
     let camera_y_axis = crossProduct(n, camera_x_axis);
+
+    let point = new Point2D(
+      camera_x_axis[0] * x + camera_x_axis[1] * y + camera_x_axis[2] * z,
+      camera_y_axis[0] * x + camera_y_axis[1] * y + camera_y_axis[2] * z
+    );
   }
 }
