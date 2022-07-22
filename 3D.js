@@ -60,7 +60,7 @@ class Camera {
     let camera_x_axis = [Math.sin(this.alpha), Math.cos(this.alpha), 0];
 
     ///camera y axis is the cross product of x_axis and camera direction toward the center
-    let camera_y_axis = crossProduct(n, camera_x_axis);
+    let camera_y_axis = crossProduct(camera_x_axis, n);
 
     let point = new Point2D(
       camera_x_axis[0] * x + camera_x_axis[1] * y + camera_x_axis[2] * z,
@@ -80,7 +80,9 @@ let yo = 300;
 let angle = -Math.PI / 4;
 setInterval(() => {
   ctx.fillStyle = "rgb(255,255,255)";
-  ctx.fillRect(0, 0, 600, 600);
+  ctx = c.getContext("2d");
+  ctx.clearRect(0, 0, 600, 600);
+  ctx.beginPath();
   angle += 0.1;
   camera.rotate(angle, Math.PI / 4);
   let xAxis = new Point3D(100, 0, 0);
@@ -88,19 +90,18 @@ setInterval(() => {
   ctx.strokeStyle = "#FF0000";
   ctx.moveTo(xo, yo);
   ctx.lineTo(xo + x_axis.x * 1, yo + x_axis.y * 1);
-  ctx.stroke();
 
   let yAxis = new Point3D(0, 100, 0);
   let y_axis = camera.project(yAxis);
   ctx.strokeStyle = "#00FF00";
   ctx.moveTo(xo, yo);
   ctx.lineTo(xo + y_axis.x * 1, yo + y_axis.y * 1);
-  ctx.stroke();
 
   let zAxis = new Point3D(0, 0, -100);
   let z_axis = camera.project(zAxis);
   ctx.strokeStyle = "#0000FF";
   ctx.moveTo(xo, yo);
   ctx.lineTo(xo + z_axis.x * 1, yo + z_axis.y * 1);
+
   ctx.stroke();
 }, 100);
