@@ -31,5 +31,9 @@ class Camera {
     this.beta = beta;
   }
 
-  project(Point3D) {}
+  project(Point3D) {
+    const x = Point3D.x;
+    const y = Point3D.y;
+    const z = Point3D.z;
+  }
 }
