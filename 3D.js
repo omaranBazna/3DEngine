@@ -131,6 +131,20 @@ setInterval(() => {
   let p8_p = camera.project(p8);
 
   ///creating a sphere
+  let sphere = [];
+  for (let i = 0; i < 10; i++) {
+    for (let u = 0; u < 10; u++) {
+      sphere[i][u] = [
+        100 *
+          Math.cos((Math.PI * 2 * i) / 10) *
+          Math.cos((Math.PI * (u - 5)) / 10),
+        100 *
+          Math.sin((Math.PI * 2 * i) / 10) *
+          Math.cos((Math.PI * (u - 5)) / 10),
+        120 + 100 * Math.sin((Math.PI * (u - 5)) / 10),
+      ];
+    }
+  }
 
   ctx.strokeStyle = "#000000";
 
