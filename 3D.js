@@ -90,14 +90,13 @@ let p5 = new Point3D(0, 0, 100);
 let p6 = new Point3D(0, 100, 100);
 let p7 = new Point3D(100, 0, 100);
 let p8 = new Point3D(100, 100, 100);
-
+let beta = Math.PI / 4;
 setInterval(() => {
   ctx.fillStyle = "rgb(255,255,255)";
   ctx = c.getContext("2d");
   ctx.clearRect(0, 0, 600, 600);
 
-  angle += 0.1;
-  camera.rotate(angle, Math.PI / 4);
+  camera.rotate(angle, beta);
   let xAxis = new Point3D(300, 0, 0);
   let x_axis = camera.project(xAxis);
   ctx.beginPath();
@@ -262,3 +261,16 @@ setInterval(() => {
     }
   }
 }, 100);
+
+function up() {
+  beta += 0.1;
+}
+function down() {
+  beta -= 0.1;
+}
+function left() {
+  angle -= 0.1;
+}
+function right() {
+  angle += 0.1;
+}
