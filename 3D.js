@@ -71,3 +71,9 @@ class Camera {
   }
 }
 ///we need to add canvas object
+let camera = new Camera(0, 0);
+let xo = 300;
+let yo = 300;
+let xAxis = new Point3D(00, 00, 100);
+let x_axis = camera.project(xAxis);
+console.log(x_axis);
