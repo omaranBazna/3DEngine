@@ -14,3 +14,12 @@ class Point2D {
     this.y = y;
   }
 }
+
+//define class for the virtual camera
+
+class Camera {
+  constructor(alpha, beta) {
+    this.alpha = alpha;
+    this.beta = beta;
+  }
+}
