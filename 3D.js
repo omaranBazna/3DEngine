@@ -45,5 +45,7 @@ class Camera {
     nx = nx / n;
     ny = ny / n;
     nz = nz / n;
+
+    let camera_x_axis = [Math.sin(this.alpha), Math.cos(this.alpha), 0];
   }
 }
