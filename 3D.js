@@ -72,8 +72,16 @@ class Camera {
 }
 ///we need to add canvas object
 let camera = new Camera(0, 0);
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
 let xo = 300;
 let yo = 300;
-let xAxis = new Point3D(00, 00, 100);
+let xAxis = new Point3D(100, 00, 00);
 let x_axis = camera.project(xAxis);
-console.log(x_axis);
+ctx.fillStyle = "rgb(255,255,255)";
+ctx.fillRect(0, 0, 600, 600);
+ctx.strokeStyle = "#FF0000";
+ctx.moveTo(xo, yo);
+ctx.lineTo(xo + x_axis.x * 1, yo + x_axis.y * 1);
+ctx.stroke();
