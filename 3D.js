@@ -16,6 +16,9 @@ class Point2D {
 }
 
 //define class for the virtual camera
+//the camera face the virtual x-axis in the virtual space
+///the camera rotate around the z-axis alpha angle
+///the camera make an angle beta with the x-y plan
 
 class Camera {
   constructor(alpha, beta) {
