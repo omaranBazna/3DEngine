@@ -131,6 +131,8 @@ setInterval(() => {
   let p8_p = camera.project(p8);
 
   ctx.strokeStyle = "#000000";
+
+  //drawing the bottom face
   ctx.beginPath();
   ctx.moveTo(xo + p1_p.x, yo + p1_p.y);
   ctx.lineTo(xo + p2_p.x, yo + p2_p.y);
@@ -151,6 +153,7 @@ setInterval(() => {
   ctx.lineTo(xo + p4_p.x, yo + +p4_p.y);
   ctx.stroke();
 
+  ///drawing the top face
   ctx.beginPath();
   ctx.moveTo(xo + p5_p.x, yo + p5_p.y);
   ctx.lineTo(xo + p6_p.x, yo + p6_p.y);
@@ -169,5 +172,21 @@ setInterval(() => {
   ctx.beginPath();
   ctx.moveTo(xo + p7_p.x, yo + p7_p.y);
   ctx.lineTo(xo + p8_p.x, yo + +p8_p.y);
+  ctx.stroke();
+
+  ///drawing the left face
+  ctx.beginPath();
+  ctx.moveTo(xo + p1_p.x, yo + p1_p.y);
+  ctx.lineTo(xo + p5_p.x, yo + p5_p.y);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xo + p5_p.x, yo + p5_p.y);
+  ctx.lineTo(xo + p6_p.x, yo + p6_p.y);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xo + p6_p.x, yo + p6_p.y);
+  ctx.lineTo(xo + p2_p.x, yo + p2_p.y);
   ctx.stroke();
 }, 100);
