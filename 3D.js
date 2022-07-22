@@ -6,3 +6,11 @@ class Point3D {
     this.z = z;
   }
 }
+///define class for point2D on the virtual camera
+
+class Point2D {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
