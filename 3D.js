@@ -5,6 +5,7 @@ function crossProduct(vect_A, vect_B) {
   result[0] = vect_A[1] * vect_B[2] - vect_A[2] * vect_B[1];
   result[1] = vect_A[2] * vect_B[0] - vect_A[0] * vect_B[2];
   result[2] = vect_A[0] * vect_B[1] - vect_A[1] * vect_B[0];
+
   return result;
 }
 
@@ -57,7 +58,7 @@ class Camera {
     nz = nz / n;
     n = [nx, ny, nz];
 
-    let camera_x_axis = [Math.sin(this.alpha), Math.cos(this.alpha), 0];
+    let camera_x_axis = [-Math.sin(this.alpha), Math.cos(this.alpha), 0];
 
     ///camera y axis is the cross product of x_axis and camera direction toward the center
     let camera_y_axis = crossProduct(camera_x_axis, n);
@@ -82,24 +83,28 @@ setInterval(() => {
   ctx.fillStyle = "rgb(255,255,255)";
   ctx = c.getContext("2d");
   ctx.clearRect(0, 0, 600, 600);
-  ctx.beginPath();
+
   angle += 0.1;
   camera.rotate(angle, Math.PI / 4);
   let xAxis = new Point3D(100, 0, 0);
   let x_axis = camera.project(xAxis);
+  ctx.beginPath();
   ctx.strokeStyle = "#FF0000";
   ctx.moveTo(xo, yo);
   ctx.lineTo(xo + x_axis.x * 1, yo + x_axis.y * 1);
-
+  ctx.stroke();
   let yAxis = new Point3D(0, 100, 0);
   let y_axis = camera.project(yAxis);
+
+  ctx.beginPath();
   ctx.strokeStyle = "#00FF00";
   ctx.moveTo(xo, yo);
   ctx.lineTo(xo + y_axis.x * 1, yo + y_axis.y * 1);
-
-  let zAxis = new Point3D(0, 0, -100);
+  ctx.stroke();
+  let zAxis = new Point3D(0, 0, 100);
   let z_axis = camera.project(zAxis);
   ctx.strokeStyle = "#0000FF";
+  ctx.beginPath();
   ctx.moveTo(xo, yo);
   ctx.lineTo(xo + z_axis.x * 1, yo + z_axis.y * 1);
 
