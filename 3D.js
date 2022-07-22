@@ -79,6 +79,18 @@ var ctx = c.getContext("2d");
 let xo = 300;
 let yo = 300;
 let angle = -Math.PI / 4;
+
+///creating the cube
+
+let p1 = new Point3D(0, 0, 0);
+let p2 = new Point3D(0, 100, 0);
+let p3 = new Point3D(100, 0, 0);
+let p4 = new Point3D(100, 100, 0);
+let p5 = new Point3D(0, 0, 100);
+let p6 = new Point3D(0, 100, 100);
+let p7 = new Point3D(100, 0, 100);
+let p8 = new Point3D(100, 100, 100);
+
 setInterval(() => {
   ctx.fillStyle = "rgb(255,255,255)";
   ctx = c.getContext("2d");
@@ -86,14 +98,14 @@ setInterval(() => {
 
   angle += 0.1;
   camera.rotate(angle, Math.PI / 4);
-  let xAxis = new Point3D(100, 0, 0);
+  let xAxis = new Point3D(300, 0, 0);
   let x_axis = camera.project(xAxis);
   ctx.beginPath();
   ctx.strokeStyle = "#FF0000";
   ctx.moveTo(xo, yo);
   ctx.lineTo(xo + x_axis.x * 1, yo + x_axis.y * 1);
   ctx.stroke();
-  let yAxis = new Point3D(0, 100, 0);
+  let yAxis = new Point3D(0, 300, 0);
   let y_axis = camera.project(yAxis);
 
   ctx.beginPath();
@@ -101,12 +113,11 @@ setInterval(() => {
   ctx.moveTo(xo, yo);
   ctx.lineTo(xo + y_axis.x * 1, yo + y_axis.y * 1);
   ctx.stroke();
-  let zAxis = new Point3D(0, 0, 100);
+  let zAxis = new Point3D(0, 0, 300);
   let z_axis = camera.project(zAxis);
   ctx.strokeStyle = "#0000FF";
   ctx.beginPath();
   ctx.moveTo(xo, yo);
   ctx.lineTo(xo + z_axis.x * 1, yo + z_axis.y * 1);
-
   ctx.stroke();
 }, 100);
